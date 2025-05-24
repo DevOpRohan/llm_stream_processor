@@ -240,6 +240,22 @@ class TestDecorator(unittest.TestCase):
         def gen(): yield 'abcdefg'
         self.assertEqual(list(gen()), ['abc', 'def', 'g'])
 
+    def test_invalid_chunk_zero(self):
+        reg = KeywordRegistry()
+        @llm_stream_processor(reg, yield_mode='chunk:0')
+        def gen():
+            yield 'abc'
+        with self.assertRaises(ValueError):
+            list(gen())
+
+    def test_invalid_chunk_negative(self):
+        reg = KeywordRegistry()
+        @llm_stream_processor(reg, yield_mode='chunk:-1')
+        def gen():
+            yield 'abc'
+        with self.assertRaises(ValueError):
+            list(gen())
+
     def test_async_token(self):
         reg = KeywordRegistry()
         reg.register('a', lambda ctx: replace('X'))
