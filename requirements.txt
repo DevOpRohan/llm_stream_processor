@@ -1,0 +1,2 @@
+# Requirements for llm-stream-processor
+# This library has no external dependencies beyond the Python standard library.
