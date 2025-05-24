@@ -7,9 +7,10 @@ Thank you for your interest in contributing! This guide outlines how to get star
 Root of the repository:
 ```
 llm-stream-processor/        # project root
-├── llm_stream_processor/    # Python package
-│   ├── api/
-│   └── engine/
+├── src/                     # source code
+│   └── llm_stream_processor/  # Python package
+│       ├── api/
+│       └── engine/
 ├── examples/                # example usage scripts
 │   └── example.py
 ├── tests/                   # unit and integration tests
@@ -26,17 +27,17 @@ llm-stream-processor/        # project root
 
 1. Install dependencies and the package in editable mode:
    ```bash
-   poetry install            # installs dev and runtime dependencies
-   pip install -e .          # installs the package in editable mode
+   pip install -r requirements.txt
+   pip install -e .
    ```
 2. Run tests:
    ```bash
-   poetry run pytest
+   pytest         # or: python -m unittest discover
    ```
 3. Lint and format:
    ```bash
-   poetry run black .
-   poetry run flake8 .
+   black .
+   flake8 .
    ```
 
 ## How to Contribute
