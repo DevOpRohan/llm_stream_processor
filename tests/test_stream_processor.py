@@ -4,7 +4,7 @@ Unit tests for llm_stream_processor functionality.
 import unittest
 import asyncio
 
-from llm_stream_processor import (
+from stream_processor import (
     drop,
     replace,
     passthrough,
@@ -12,12 +12,12 @@ from llm_stream_processor import (
     continuous_drop,
     continuous_pass,
 )
-from llm_stream_processor.engine.history import StreamHistory, NullHistory
-from llm_stream_processor.engine.types import ActionType, ActionDecision
-from llm_stream_processor.engine.registry import KeywordRegistry
-from llm_stream_processor.engine.processor import StreamProcessor
-from llm_stream_processor.engine.exceptions import StreamHalted
-from llm_stream_processor import llm_stream_processor
+from stream_processor.engine.history import StreamHistory, NullHistory
+from stream_processor.engine.types import ActionType, ActionDecision
+from stream_processor.engine.registry import KeywordRegistry
+from stream_processor.engine.processor import StreamProcessor
+from stream_processor.engine.exceptions import StreamHalted
+from stream_processor import llm_stream_processor
 
 
 class TestActions(unittest.TestCase):

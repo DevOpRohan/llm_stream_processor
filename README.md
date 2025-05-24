@@ -1,17 +1,17 @@
-# llm_stream_processor
+# stream_processor
 
 A callback-driven, prefix-safe, lazy LLM stream sanitization library.
 
 ## Installation
 
 ```bash
-pip install llm-stream-processor
+pip install llm-stream-processor  # installs the `stream_processor` package
 ```
 
 ## Quickstart
 
 ```python
-from llm_stream_processor import KeywordRegistry, llm_stream_processor, replace
+from stream_processor import KeywordRegistry, llm_stream_processor, replace
 
 reg = KeywordRegistry()
 reg.register("secret", replace("[REDACTED]"))
@@ -29,7 +29,12 @@ print(list(gen()))  # ['The [REDACTED] is out.']
 2. Decorate your token generator with `@llm_stream_processor`.
 3. Consume the filtered output.
 
-See `examples/example.py` for more examples.
+See `examples/example.py` for more examples (importing from `stream_processor`).
+
+To run the demo example directly:
+```bash
+python3 examples/example.py
+```
 
 ## Documentation
 

@@ -1,5 +1,9 @@
-"""Example usage of llm_stream_processor."""
-from llm_stream_processor import KeywordRegistry, llm_stream_processor, replace, halt
+"""Example usage of stream_processor."""
+import os
+import sys
+# Allow running example directly without installing or setting PYTHONPATH
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from stream_processor import KeywordRegistry, llm_stream_processor, replace, halt
 
 # Create a registry and register callbacks
 reg = KeywordRegistry()

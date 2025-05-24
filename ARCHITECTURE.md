@@ -102,7 +102,7 @@ On detecting the longest match at a node:
 3. **Helper Actions**: `drop()`, `replace()`, `halt()`, `continuous_drop()`, etc.
 
 ```python
-from llm_stream_processor import KeywordRegistry, llm_stream_processor, replace, halt
+from stream_processor import KeywordRegistry, llm_stream_processor, replace, halt
 reg = KeywordRegistry()
 reg.register('secret', replace('[REDACTED]'))
 reg.register('stop', halt)

@@ -7,10 +7,9 @@ Thank you for your interest in contributing! This guide outlines how to get star
 Root of the repository:
 ```
 llm-stream-processor/        # project root
-├── src/                     # source code
-│   └── llm_stream_processor/  # Python package
-│       ├── api/
-│       └── engine/
+├── stream_processor/        # Python package (import as `stream_processor`)
+│   ├── api/
+│   └── engine/
 ├── examples/                # example usage scripts
 │   └── example.py
 ├── tests/                   # unit and integration tests
