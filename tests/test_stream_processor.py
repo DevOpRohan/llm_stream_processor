@@ -3,6 +3,11 @@ Unit tests for llm_stream_processor functionality.
 """
 import unittest
 import asyncio
+import os
+import sys
+
+# Ensure the project root is on the import path when tests are executed
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from stream_processor import (
     drop,
