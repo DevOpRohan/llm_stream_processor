@@ -150,6 +150,13 @@ class TestProcessor(unittest.TestCase):
         reg.register('stop', halt)
         self.assertEqual(self.run_seq(reg, 'abstopcd'), 'ab')
 
+    def test_halt_during_drop_mode(self):
+        reg = KeywordRegistry()
+        reg.register('<s>', continuous_drop)
+        reg.register('stop', halt)
+        txt = 'ab<s>cdstop'
+        self.assertEqual(self.run_seq(reg, txt), 'ab')
+
     def test_continuous(self):
         reg = KeywordRegistry()
         reg.register('<s>', continuous_drop)
