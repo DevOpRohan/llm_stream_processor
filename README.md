@@ -42,6 +42,15 @@ python3 -m examples.example
 - **Architecture & design**: `docs/ARCHITECTURE.md`
 - **Developer guide & contributing**: `CONTRIBUTING.md`
 
+## Development Setup
+
+Install the project in editable mode and run the tests from the repository root:
+
+```bash
+pip install -e .
+PYTHONPATH=. pytest
+```
+
 ## Building & Publishing
 
 Using Poetry:
