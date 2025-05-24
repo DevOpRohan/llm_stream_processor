@@ -166,16 +166,20 @@ class StreamProcessor:
         """
         Flush and return all remaining buffered characters.
 
-        If a HALT decision occurred, returns the buffer as-is (no drop-mode or
-        keyword contents), otherwise applies drop-mode or normal flush logic.
+        If a HALT decision occurred, returns the buffer as-is unless drop mode
+        is active. When drop mode is active after a halt, all buffered
+        characters are discarded. Otherwise applies drop-mode or normal flush
+        logic.
 
         Returns:
             Remaining characters to emit after processing the entire input.
         """
-        # If halted, emit whatever remains in the buffer
+        # If halted, emit remaining buffer unless drop mode is active
         if getattr(self, '_halted', False):
             rem = list(self._buffer)
             self._buffer.clear()
+            if self._drop_mode:
+                return []
             return rem
         # If in drop mode, discard all buffered characters
         if self._drop_mode:
