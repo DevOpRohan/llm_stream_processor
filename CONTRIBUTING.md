@@ -7,10 +7,9 @@ Thank you for your interest in contributing! This guide outlines how to get star
 Root of the repository:
 ```
 llm-stream-processor/        # project root
-├── src/                     # source code
-│   └── llm_stream_processor/  # Python package
-│       ├── api/
-│       └── engine/
+├── llm_stream_processor/    # Python package
+│   ├── api/
+│   └── engine/
 ├── examples/                # example usage scripts
 │   └── example.py
 ├── tests/                   # unit and integration tests
@@ -18,8 +17,9 @@ llm-stream-processor/        # project root
 ├── ARCHITECTURE.md          # design and architecture details
 ├── CONTRIBUTING.md          # this document
 ├── CODE_OF_CONDUCT.md       # project CoC
-├── pyproject.toml           # Poetry package config
-├── .gitignore
+├── setup.cfg                # setuptools configuration
+├── requirements.txt         # runtime requirements (none)
+└── .gitignore
 ```
 
 ## Development Setup
