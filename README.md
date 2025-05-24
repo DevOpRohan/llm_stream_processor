@@ -8,6 +8,12 @@ A callback-driven, prefix-safe, lazy LLM stream sanitization library.
 pip install llm-stream-processor  # installs the `stream_processor` package
 ```
 
+For a development install, run:
+
+```bash
+pip install -e .
+```
+
 ## Quickstart
 
 ```python
