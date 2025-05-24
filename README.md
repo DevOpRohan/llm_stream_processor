@@ -31,14 +31,16 @@ print(list(gen()))  # ['The [REDACTED] is out.']
 
 See `examples/example.py` for more examples (importing from `stream_processor`).
 
-To run the demo example directly:
+To run the demo example directly (from project root):
 ```bash
-python3 examples/example.py
+python3 -m examples.example
 ```
 
 ## Documentation
 
-- Architecture: see `ARCHITECTURE.md`
+- **Problem statement**: `docs/PROBLEM.md`
+- **Architecture & design**: `docs/ARCHITECTURE.md`
+- **Developer guide & contributing**: `CONTRIBUTING.md`
 
 ## Building & Publishing
 

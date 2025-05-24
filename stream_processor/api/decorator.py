@@ -40,18 +40,18 @@ def llm_stream_processor(registry, *, yield_mode='token', record_history=True):
                 sp = StreamProcessor(registry, record_history=record_history)
                 # TOKEN mode: yield one string per input token
                 if yield_mode == 'token':
-                    try:
-                        async for token in fn(*args, **kwargs):
-                            out_chars = []
+                    async for token in fn(*args, **kwargs):
+                        out_chars: list = []
+                        for ch in token:
                             try:
-                                for ch in token:
-                                    out_chars.extend(sp.process(ch))
+                                out_chars.extend(sp.process(ch))
                             except StreamHalted:
+                                out_chars.extend(sp.flush())
+                                if out_chars:
+                                    yield ''.join(out_chars)
                                 return
-                            out_chars.extend(sp.flush())
-                            yield ''.join(out_chars)
-                    except StreamHalted:
-                        return
+                        out_chars.extend(sp.flush())
+                        yield ''.join(out_chars)
                     return
                 # CHAR or CHUNK modes
                 try:
@@ -78,12 +78,15 @@ def llm_stream_processor(registry, *, yield_mode='token', record_history=True):
                 sp = StreamProcessor(registry, record_history=record_history)
                 if yield_mode == 'token':
                     for token in fn(*args, **kwargs):
-                        out_chars = []
-                        try:
-                            for ch in token:
+                        out_chars: list = []
+                        for ch in token:
+                            try:
                                 out_chars.extend(sp.process(ch))
-                        except StreamHalted:
-                            return
+                            except StreamHalted:
+                                out_chars.extend(sp.flush())
+                                if out_chars:
+                                    yield ''.join(out_chars)
+                                return
                         out_chars.extend(sp.flush())
                         yield ''.join(out_chars)
                     return

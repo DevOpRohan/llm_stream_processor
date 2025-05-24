@@ -21,7 +21,7 @@
 
 ## Problem Overview
 
-Refer to [problem.md](./problem.md) for a detailed problem statement, motivations, and challenges in streaming LLM output safely in real time.
+Refer to [PROBLEM.md](./PROBLEM.md) for a detailed problem statement, motivations, and challenges in streaming LLM output safely in real time.
 
 ## Goals & Requirements
 1. Prefix-safe multi-pattern detection over a character stream.
