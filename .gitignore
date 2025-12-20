@@ -15,4 +15,5 @@ venv.bak/
 .mypy_cache/
 .DS_Store
 .idea/
-.vscode/
+.vscode/.venv310/
+.venv311/

@@ -1,6 +1,11 @@
 """
 llm_stream_processor: A callback-driven, prefix-safe, lazy LLM stream sanitization library.
+
+Process streaming LLM outputs in real-time with pattern matching, content filtering,
+and dynamic actions (redact, drop, replace, halt) using an efficient Aho-Corasick automaton.
 """
+
+__version__ = "0.1.0"
 
 from .engine.registry import KeywordRegistry
 from .engine.processor import StreamProcessor
@@ -19,6 +24,7 @@ from .api import (
 )
 
 __all__ = [
+    "__version__",
     "KeywordRegistry",
     "StreamProcessor",
     "StreamHalted",
