@@ -17,9 +17,12 @@ def _repack(chars, mode):
         yield ''.join(chars)
     elif mode.startswith('chunk:'):
         try:
-            size = int(mode.split(':', 1)[1])
+            size_str = mode.split(':', 1)[1]
+            size = int(size_str)
         except (IndexError, ValueError):
             raise ValueError(f"Invalid chunk size in mode '{mode}'")
+        if size <= 0:
+            raise ValueError("Chunk size must be a positive integer")
         for i in range(0, len(chars), size):
             yield ''.join(chars[i:i+size])
     else:
